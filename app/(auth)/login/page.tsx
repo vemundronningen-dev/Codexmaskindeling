@@ -20,8 +20,7 @@ export default async function LoginPage({
     const result = await login(email, password);
 
     if (!result.ok) {
-      const errorMessage = result.message ?? 'Ukjent feil ved innlogging.';
-      redirect(`/login?error=${encodeURIComponent(errorMessage)}`);
+      redirect(`/login?error=${encodeURIComponent(result.message)}`);
     }
 
     redirect('/');
